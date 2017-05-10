@@ -1,0 +1,97 @@
+
+//Import other scss files in same folder
+
+@import "reset";
+@import "variables";
+@import "mixins";
+
+
+
+// #main-nav ul{} , #main-nav ul li {} . We can simplify like this
+#main-nav {
+    background: $deepBlue; 
+    ul{
+        width: 100%;
+ @include clearfix;
+    }
+    li{
+        float:left;
+        width: (100% / 6);
+        //Mixin of media query ! For resize
+        @include mq(600px){
+            width:100%;
+        }
+    }
+    a{
+        
+        color: $offwhite;
+        text-decoration: none;
+        padding:16px;
+        display:block;
+        text-align: center;
+        // Put & to use pseudo class
+        &:hover{
+            background: lighten($deepBlue, 5);
+        }
+    }
+}
+
+
+section h1{
+    font-size: $sectionheading;
+    color: $deepBlue;
+}
+
+
+.lead-banner{
+    //bring mixin
+    @include banner;
+    text-align: right;
+}
+
+.lessons-banner{
+    @include banner;
+    
+    li{
+        text-transform: uppercase;
+        font-size: 20px;
+        max-width: 500px;
+        margin: 60px 0;
+    }
+}
+
+#services {
+    margin-bottom: 60px;
+    li{
+        width:(100% / 3);
+        float:left;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    img{
+        width:60%;
+        margin:20px 20%;
+    }
+    a{
+        text-decoration: none;
+        color: $deepBlue;
+        font-weight: bold;
+        &:hover{
+            color:complement($deepBlue);
+        }
+    }
+    
+    ul{
+        @include clearfix;
+    }
+    
+}
+//Projects (see mixins)
+#projects li{
+    @include grid(4, 2%);
+    img{
+        width:100%;
+        
+    }
+}
+
